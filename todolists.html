@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #a1a3ca;
+        }
+
+        #todo-list {
+            width: 300px;
+            margin: 0 300px;
+            padding: 10px;
+        }
+
+        #sidebar {
+            width: 250px;
+            background: #333;
+            position: fixed;
+            height: 100%;
+            color: #fff;
+            padding-top: 20px;
+        }
+
+        #sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #fff;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        h1, h2 {
+            color: rgb(39, 18, 71);
+        }
+
+        button {
+            margin-left: 10px;
+            cursor: pointer;
+            background: #8a73b6;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div id="sidebar">
+        <a href="homepage.html">My Timetable</a>
+        <a href="groups.html">Groups</a>
+        <a href="todolists.html">To-do lists</a>
+        <a href="friends.html">Friends</a>
+        <a href="settings.html">Settings</a>
+    </div>
+
+    <div id="todo-list">
+        <h1>To-Do Lists</h1>
+        <h2>My tasks</h2>
+        <div style="background-color: #ffffff; padding: 10px;">
+            <ul id="tasks">
+            <!-- Existing tasks will be displayed here -->
+            </ul>
+        </div><br><br><br><br><br>
+        <input type="text" id="new-task" placeholder="New task">
+        <button id="add-task">Add Task</button>
+    </div>
+
+    <script>
+        // Get references to HTML elements
+        const tasksList = document.getElementById("tasks");
+        const newTaskInput = document.getElementById("new-task");
+        const addTaskButton = document.getElementById("add-task");
+
+        // Function to add a new task
+        function addTask() {
+            const taskText = newTaskInput.value;
+            if (taskText.trim() !== "") {
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `${taskText} <button class="delete">Delete</button>`;
+                tasksList.appendChild(listItem);
+
+                // Add event listener for deleting tasks
+                const deleteButton = listItem.querySelector(".delete");
+                deleteButton.addEventListener("click", () => deleteTask(listItem));
+
+                // Clear the input field
+                newTaskInput.value = "";
+            }
+        }
+
+        // Function to delete a task
+        function deleteTask(listItem) {
+            listItem.remove();
+        }
+
+        // Event listener for the "Add Task" button
+        addTaskButton.addEventListener("click", addTask);
+
+        // Initial sample tasks
+        addTaskSampleTasks();
+
+        function addTaskSampleTasks() {
+            const sampleTasks = ["SEM Assessment", "Finish project", "Club work"];
+            sampleTasks.forEach((task) => {
+                const listItem = document.createElement("li");
+                listItem.innerHTML = `${task} <button class="delete">Delete</button>`;
+                tasksList.appendChild(listItem);
+
+                // Add event listener for deleting tasks
+                const deleteButton = listItem.querySelector(".delete");
+                deleteButton.addEventListener("click", () => deleteTask(listItem));
+            });
+        }
+    </script>
+</body>
+</html>

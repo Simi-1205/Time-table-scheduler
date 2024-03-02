@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #a1a3ca;
+            margin: 0;
+            padding: 0;
+        }
+
+        #sidebar {
+            width: 250px;
+            background: #333;
+            position: fixed;
+            height: 100%;
+            color: #fff;
+            padding-top: 20px;
+        }
+
+        #sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #fff;
+            display: block;
+        }
+
+        #content {
+            margin-left: 260px;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: rgb(39, 18, 71);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            color: rgb(39, 18, 71);
+        }
+
+        table, th, td {
+            border: 1px solid #333;
+            color: rgb(39, 18, 71);
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+        }
+
+        .add-button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .day-container {
+            display: none;
+        }
+
+        .day-container.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <a href="homepage.html">My Timetable</a>
+        <a href="groups.html">Groups</a>
+        <a href="todolists.html">To-do lists</a>
+        <a href="friends.html">Friends</a>
+        <a href="settings.html">Settings</a>
+    </div>
+
+    <div id="content">
+        <h1>My Time Table</h1>
+
+        <div class="day-navigation">
+            <button class="nav-button" id="prev-day">◄ Previous Day</button>
+            <button class="nav-button" id="next-day">Next Day ►</button>
+        </div>
+
+        <!-- Monday -->
+        <div class="day-container active" id="monday">
+            <h2>Monday</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time Slot</th>
+                        <th>Task</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example time table slots for Monday -->
+                </tbody>
+            </table>
+            <h2>Add a Time Slot</h2>
+            <form class="add-slot-form">
+                <label for="time-slot">Time Slot:</label>
+                <input type="text" class="time-slot" name="time-slot" required><br><br>
+                <label for="task">Task:</label>
+                <input type="text" class="task" name="task" required><br><br>
+                <button class="add-button add-slot" type="button">Add Slot</button>
+            </form>
+        </div>
+
+        <!-- Tuesday -->
+        <div class="day-container" id="tuesday">
+            <h2>Tuesday</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time Slot</th>
+                        <th>Task</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example time table slots for Tuesday -->
+                </tbody>
+            </table>
+            <h2>Add a Time Slot</h2>
+            <form class="add-slot-form">
+                <label for="time-slot">Time Slot:</label>
+                <input type="text" class="time-slot" name="time-slot" required><br><br>
+                <label for="task">Task:</label>
+                <input type="text" class="task" name="task" required><br><br>
+                <button class="add-button add-slot" type="button">Add Slot</button>
+            </form>
+        </div>
+
+        <!-- Wednesday -->
+        <div class="day-container" id="wednesday">
+            <h2>Wednesday</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time Slot</th>
+                        <th>Task</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example time table slots for Wednesday -->
+                </tbody>
+            </table>
+            <h2>Add a Time Slot</h2>
+            <form class="add-slot-form">
+                <label for="time-slot">Time Slot:</label>
+                <input type="text" class="time-slot" name="time-slot" required><br><br>
+                <label for="task">Task:</label>
+                <input type="text" class="task" name="task" required><br><br>
+                <button class="add-button add-slot" type="button">Add Slot</button>
+            </form>
+        </div>
+
+        <!-- Thursday -->
+        <div class="day-container" id="thursday">
+            <h2>Thursday</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time Slot</th>
+                        <th>Task</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example time table slots for Thursday -->
+                </tbody>
+            </table>
+            <h2>Add a Time Slot</h2>
+            <form class="add-slot-form">
+                <label for="time-slot">Time Slot:</label>
+                <input type="text" class="time-slot" name="time-slot" required><br><br>
+                <label for="task">Task:</label>
+                <input type="text" class="task" name="task" required><br><br>
+                <button class="add-button add-slot" type="button">Add Slot</button>
+            </form>
+        </div>
+
+        <!-- Friday -->
+        <div class="day-container" id="friday">
+            <h2>Friday</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time Slot</th>
+                        <th>Task</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example time table slots for Friday -->
+                </tbody>
+            </table>
+            <h2>Add a Time Slot</h2>
+            <form class="add-slot-form">
+                <label for="time-slot">Time Slot:</label>
+                <input type="text" class="time-slot" name="time-slot" required><br><br>
+                <label for="task">Task:</label>
+                <input type="text" class="task" name="task" required><br><br>
+                <button class="add-button add-slot" type="button">Add Slot</button>
+            </form>
+        </div>
+
+        <!-- Saturday -->
+        <div class="day-container" id="saturday">
+            <h2>Saturday</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time Slot</th>
+                        <th>Task</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example time table slots for Saturday -->
+                </tbody>
+            </table>
+            <h2>Add a Time Slot</h2>
+            <form class "add-slot-form">
+                <label for="time-slot">Time Slot:</label>
+                <input type="text" class="time-slot" name="time-slot" required><br><br>
+                <label for "task">Task:</label>
+                <input type="text" class="task" name="task" required><br><br>
+                <button class="add-button add-slot" type="button">Add Slot</button>
+            </form>
+        </div>
+
+        <!-- Sunday -->
+        <div class="day-container" id="sunday">
+            <h2>Sunday</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time Slot</th>
+                        <th>Task</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example time table slots for Sunday -->
+                </tbody>
+            </table>
+            <h2>Add a Time Slot</h2>
+            <form class="add-slot-form">
+                <label for="time-slot">Time Slot:</label>
+                <input type="text" class="time-slot" name="time-slot" required><br><br>
+                <label for="task">Task:</label>
+                <input type="text" class="task" name="task" required><br><br>
+                <button class="add-button add-slot" type="button">Add Slot</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const dayContainers = document.querySelectorAll(".day-container");
+        const navButtons = document.querySelectorAll(".nav-button");
+
+        let currentDayIndex = 0;
+
+        function showCurrentDay() {
+            dayContainers.forEach((container, index) => {
+                if (index === currentDayIndex) {
+                    container.classList.add("active");
+                } else {
+                    container.classList.remove("active");
+                }
+            });
+        }
+
+        showCurrentDay();
+
+        navButtons.forEach((button, index) => {
+            button.addEventListener("click", () => {
+                if (index === 0) {
+                    currentDayIndex = (currentDayIndex - 1 + dayContainers.length) % dayContainers.length;
+                } else {
+                    currentDayIndex = (currentDayIndex + 1) % dayContainers.length;
+                }
+                showCurrentDay();
+            });
+        });
+
+        const addSlotButtons = document.querySelectorAll(".add-slot");
+        addSlotButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const day = dayContainers[currentDayIndex];
+                const timeSlot = day.querySelector(".time-slot").value;
+                const task = day.querySelector(".task").value;
+                const tableBody = day.querySelector("table tbody");
+
+                if (timeSlot && task) {
+                    const newRow = document.createElement("tr");
+                    newRow.innerHTML = `
+                        <td>${timeSlot}</td>
+                        <td>${task}</td>
+                        <td>
+                            <button class="delete-button">Delete</button>
+                        </td>
+                    `;
+                    tableBody.appendChild(newRow);
+
+                    day.querySelector(".time-slot").value = "";
+                    day.querySelector(".task").value = "";
+
+                    newRow.querySelector(".delete-button").addEventListener("click", () => {
+                        newRow.remove();
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

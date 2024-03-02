@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Friend Requests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #a1a3ca;
+        }
+
+        #friend-requests {
+            width: 300px;
+            margin: 0 300px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        #sidebar {
+            width: 250px;
+            background: #333;
+            position: fixed;
+            height: 100%;
+            color: #fff;
+            padding-top: 20px;
+        }
+
+        #sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #fff;
+            display: block;
+        }
+
+        h1{
+            margin: 0px 300px;
+            color: rgb(62, 34, 105);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="sidebar">
+        <a href="homepage.html">My Timetable</a>
+        <a href="groups.html">Groups</a>
+        <a href="todolists.html">To-do lists</a>
+        <a href="friends.html">Friends</a>
+        <a href="settings.html">Settings</a>
+    </div>
+<br><br>
+    <h1>Friend Requests</h1>
+    <div id="friend-requests">
+        <h4><ul>
+            <li>
+                <a href="#requests">Requests</a>
+            </li>
+            <li>
+                <a href="#add">Add</a>
+            </li>
+        </ul></h4>
+        <div id="requests-content">
+            <h2>Friend Requests</h2>
+            <ul id="requests-list">
+                <!-- Friend requests will be displayed here -->
+            </ul>
+        </div>
+        <div id="add-content">
+            <h2>Add Friend</h2>
+            <input type="text" id="username" placeholder="Username">
+            <button id="send-request">Send Request</button>
+        </div>
+    </div>
+
+    <script>
+        // Get references to HTML elements
+        const requestsTab = document.querySelector('a[href="#requests"]');
+        const addTab = document.querySelector('a[href="#add"]');
+        const requestsContent = document.getElementById('requests-content');
+        const addContent = document.getElementById('add-content');
+        const usernameInput = document.getElementById('username');
+        const sendRequestButton = document.getElementById('send-request');
+        const requestsList = document.getElementById('requests-list');
+
+        // Show the "Requests" tab and hide the "Add" tab by default
+        requestsTab.addEventListener('click', () => {
+            requestsContent.style.display = 'block';
+            addContent.style.display = 'none';
+        });
+
+        // Show the "Add" tab and hide the "Requests" tab
+        addTab.addEventListener('click', () => {
+            addContent.style.display = 'block';
+            requestsContent.style.display = 'none';
+        });
+
+        // Event listener for sending a friend request
+        sendRequestButton.addEventListener('click', () => {
+            const username = usernameInput.value;
+            if (username.trim() !== '') {
+                // You can handle the logic to send friend requests here
+                // For this example, let's assume the request is sent.
+                alert(`Friend request sent to ${username}`);
+                usernameInput.value = '';
+            }
+        });
+
+        // Function to accept a friend request
+        function acceptRequest(requestItem) {
+            // You can handle the logic to accept the request here
+            // For this example, let's assume the request is accepted and removed from the list.
+            requestItem.remove();
+            alert('Friend request accepted');
+        }
+
+        // Function to delete a friend request
+        function deleteRequest(requestItem) {
+            // You can handle the logic to delete the request here
+            // For this example, let's assume the request is deleted from the list.
+            requestItem.remove();
+            alert('Friend request deleted');
+        }
+
+        // Simulate friend requests for demonstration
+        const sampleRequests = ['User1', 'User2', 'User3'];
+        sampleRequests.forEach((username) => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `${username} <button class="accept">Accept</button> <button class="delete">Delete</button>`;
+            requestsList.appendChild(listItem);
+
+            // Add event listeners for accepting and deleting friend requests
+            const acceptButton = listItem.querySelector('.accept');
+            const deleteButton = listItem.querySelector('.delete');
+
+            acceptButton.addEventListener('click', () => acceptRequest(listItem));
+            deleteButton.addEventListener('click', () => deleteRequest(listItem));
+        });
+    </script>
+</body>
+</html>
