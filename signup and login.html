@@ -1,109 +1,117 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Login and Signup Page</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #a1a3ca;
-            margin: 0;
-            padding: 0;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #a1a3ca;
+        margin: 0;
+        padding: 0;
+      }
 
-        .container {
-            max-width: 500px;
-            margin: 100px auto;
-            padding: 20px;
-            background: rgb(255, 255, 255);
-            text-align: center;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-        }
+      .container {
+        max-width: 500px;
+        margin: 100px auto;
+        padding: 20px;
+        background: rgb(255, 255, 255);
+        text-align: center;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      }
 
-        h1 {
-            color: rgb(60, 35, 97)
-        }
+      h1 {
+        color: rgb(60, 35, 97);
+      }
 
-        .input-container {
-            margin: 20px 0;
-        }
+      .input-container {
+        margin: 20px 0;
+      }
 
-        .input-container input {
-            width: 90%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid rgb(0, 0, 0)204, 204)545;
-            border-radius: 3px;
-        }
+      .input-container input {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid rgb(0, 0, 0);
+        /* 204, 204,545; */
+        border-radius: 3px;
+      }
 
-        .btn {
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            border-radius: 3px;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
+      .btn {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
 
-        .btn-login {
-            background-color: #007BFF;
-        }
+      .btn-login {
+        background-color: #007bff;
+      }
 
-        .btn-signup {
-            background-color: #34A853;
-        }
+      .btn-signup {
+        background-color: #34a853;
+      }
 
-        .toggle-link {
-            color: #007BFF;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
+      .toggle-link {
+        color: #007bff;
+        text-decoration: underline;
+        cursor: pointer;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container" id="login-form">
-        <h1>Login!</h1>
-        <div class="input-container">
-            <input type="text" placeholder="Username" />
-        </div>
-        <div class="input-container">
-            <input type="password" placeholder="Password" />
-        </div>
-        <a href="homepage.html"><button class="btn btn-login">Login</button></a>
-        <p>Don't have an account? <span class="toggle-link" id="show-signup">Sign up</span></p>
+      <h1>Login!</h1>
+      <div class="input-container">
+        <input type="text" placeholder="Username" />
+      </div>
+      <div class="input-container">
+        <input type="password" placeholder="Password" />
+      </div>
+      <a href="homepage.html"><button class="btn btn-login">Login</button></a>
+      <p>
+        Don't have an account?
+        <span class="toggle-link" id="show-signup">Sign up</span>
+      </p>
     </div>
 
-    <div class="container" id="signup-form" style="display: none;">
-        <h1>Sign Up!</h1>
-        <div class="input-container">
-            <input type="text" placeholder="Userame" />
-        </div>
-        <div class="input-container">
-            <input type="text" placeholder="Email" />
-        </div>
-        <div class="input-container">
-            <input type="password" placeholder="Password" />
-        </div>
-        <a href="homepage.html"><button class="btn btn-signup">Sign Up</button></a>
-        <p>Already have an account? <span class="toggle-link" id="show-login">Login</span></p>
+    <div class="container" id="signup-form" style="display: none">
+      <h1>Sign Up!</h1>
+      <div class="input-container">
+        <input type="text" placeholder="Userame" />
+      </div>
+      <div class="input-container">
+        <input type="text" placeholder="Email" />
+      </div>
+      <div class="input-container">
+        <input type="password" placeholder="Password" />
+      </div>
+      <a href="homepage.html"
+        ><button class="btn btn-signup">Sign Up</button></a
+      >
+      <p>
+        Already have an account?
+        <span class="toggle-link" id="show-login">Login</span>
+      </p>
     </div>
 
     <script>
-        const loginForm = document.getElementById("login-form");
-        const signupForm = document.getElementById("signup-form");
-        const showSignupLink = document.getElementById("show-signup");
-        const showLoginLink = document.getElementById("show-login");
+      const loginForm = document.getElementById("login-form");
+      const signupForm = document.getElementById("signup-form");
+      const showSignupLink = document.getElementById("show-signup");
+      const showLoginLink = document.getElementById("show-login");
 
-        showSignupLink.addEventListener("click", function () {
-            loginForm.style.display = "none";
-            signupForm.style.display = "block";
-        });
+      showSignupLink.addEventListener("click", function () {
+        loginForm.style.display = "none";
+        signupForm.style.display = "block";
+      });
 
-        showLoginLink.addEventListener("click", function () {
-            loginForm.style.display = "block";
-            signupForm.style.display = "none";
-        });
+      showLoginLink.addEventListener("click", function () {
+        loginForm.style.display = "block";
+        signupForm.style.display = "none";
+      });
     </script>
-</body>
+  </body>
 </html>

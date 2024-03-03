@@ -1,135 +1,138 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Friend's Timetable Viewer</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #a1a3ca;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #a1a3ca;
+      }
 
-        #timetable-viewer {
-            width: 300px;
-            margin: 0 auto;
-        }
+      #timetable-viewer {
+        width: 300px;
+        margin: 0 auto;
+      }
 
-        h1{
-            margin: 0px 300px;
-            color: rgb(62, 34, 105);
-        }
+      h1 {
+        margin: 0px 300px;
+        color: rgb(62, 34, 105);
+      }
 
-        select {
-            width: 150px;
-        }
+      select {
+        width: 150px;
+      }
 
-        #sidebar {
-            width: 250px;
-            background: #333;
-            position: fixed;
-            height: 100%;
-            color: #fff;
-            padding-top: 20px;
-        }
+      #sidebar {
+        width: 250px;
+        background: #333;
+        position: fixed;
+        height: 100%;
+        color: #fff;
+        padding-top: 20px;
+      }
 
-        #sidebar a {
-            padding: 10px 15px;
-            text-decoration: none;
-            font-size: 20px;
-            color: #fff;
-            display: block;
-        }
-
+      #sidebar a {
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 20px;
+        color: #fff;
+        display: block;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <div id="sidebar">
-        <a href="homepage.html">My Timetable</a>
-        <a href="groups.html">Groups</a>
-        <a href="todolists.html">To-do lists</a>
-        <a href="friends.html">Friends</a>
-        <a href="settings.html">Settings</a>
+      <a href="homepage.html">My Timetable</a>
+      <a href="groups.html">Groups</a>
+      <a href="todolists.html">To-do lists</a>
+      <a href="friends.html">Friends</a>
+      <a href="settings.html">Settings</a>
     </div>
-<br><br>
-    <h1>Friend's Timetable Viewer</h1><br><br>
+    <br /><br />
+    <h1>Friend's Timetable Viewer</h1>
+    <br /><br />
     <div id="timetable-viewer">
-        <label for="friend-list">Select a Friend:</label>
-        <select id="friend-list">
-            <option value="friend1">Friend 1</option>
-            <option value="friend2">Friend 2</option>
-            <option value="friend3">Friend 3</option>
-            <!-- Add more friends as needed -->
-        </select>
-<br><br>
-        <label for="day-list">Select a Day:</label>
-        <select id="day-list">
-            <option value="monday">Monday</option>
-            <option value="tuesday">Tuesday</option>
-            <option value="wednesday">Wednesday</option>
-            <option value="thursday">Thursday</option>
-            <option value="friday">Friday</option>
-            <option value="saturday">Saturday</option>
-            <option value="sunday">Sunday</option>
-        </select>
-        <br><br><br>
-        <button id="view-timetable">View Timetable</button>
+      <label for="friend-list">Select a Friend:</label>
+      <select id="friend-list">
+        <option value="friend1">Friend 1</option>
+        <option value="friend2">Friend 2</option>
+        <option value="friend3">Friend 3</option>
+        <!-- Add more friends as needed -->
+      </select>
+      <br /><br />
+      <label for="day-list">Select a Day:</label>
+      <select id="day-list">
+        <option value="monday">Monday</option>
+        <option value="tuesday">Tuesday</option>
+        <option value="wednesday">Wednesday</option>
+        <option value="thursday">Thursday</option>
+        <option value="friday">Friday</option>
+        <option value="saturday">Saturday</option>
+        <option value="sunday">Sunday</option>
+      </select>
+      <br /><br /><br />
+      <button id="view-timetable">View Timetable</button>
 
-        <div id="timetable">
-            <!-- Timetable of the selected friend for the chosen day will be displayed here -->
-        </div>
+      <div id="timetable">
+        <!-- Timetable of the selected friend for the chosen day will be displayed here -->
+      </div>
     </div>
 
     <script>
-        // Get references to HTML elements
-        const friendList = document.getElementById("friend-list");
-        const dayList = document.getElementById("day-list");
-        const viewTimetableButton = document.getElementById("view-timetable");
-        const timetable = document.getElementById("timetable");
+      // Get references to HTML elements
+      const friendList = document.getElementById("friend-list");
+      const dayList = document.getElementById("day-list");
+      const viewTimetableButton = document.getElementById("view-timetable");
+      const timetable = document.getElementById("timetable");
 
-        // Define timetables for friends (you can replace with real data)
-        const friendTimetables = {
-            friend1: {
-                monday: "8:00 AM - 10:00 AM: OOPs class",
-                tuesday: "9:00 AM - 11:00 AM: DSA class",
-                wednesday: "2:00 PM - 3:00 pm: SEM class",
-                thursday: "2:00 PM - 3:00 pm: Online meeting",
-                friday: "2:00 PM - 3:00 pm: DSA class",
-                saturday: "2:00 PM - 3:00 pm: Break",
-                sunday: "2:00 PM - 3:00 pm: Management Class"
-            },
-            friend2: {
-                monday: "10:00 AM - 11:00 AM: FCA class",
-                tuesday: "9:00 AM - 11:00 AM: OOPs class",
-                wednesday: "2:00 PM - 3:00 pm: SEM class",
-                thursday: "2:00 PM - 3:00 pm: Online meeting",
-                friday: "2:00 PM - 3:00 pm: DSA class",
-                saturday: "2:00 PM - 3:00 pm: Break",
-                sunday: "2:00 PM - 3:00 pm: Management Class"
-            },
-            friend3: {
-                monday: "2:00 PM - 3:00 pm: Management Class",
-                tuesday: "9:00 AM - 11:00 AM: DSA class",
-                wednesday: "2:00 PM - 3:00 pm: SEM class",
-                thursday: "12:00 PM - 1:00 pm: Management Class",
-                friday: "2:00 PM - 3:00 pm: DSA class",
-                saturday: "2:00 PM - 3:00 pm: Online meeting",
-                sunday: "2:00 PM - 3:00 pm: Management Class"
-            }
-        };
+      // Define timetables for friends (you can replace with real data)
+      const friendTimetables = {
+        friend1: {
+          monday: "8:00 AM - 10:00 AM: OOPs class",
+          tuesday: "9:00 AM - 11:00 AM: DSA class",
+          wednesday: "2:00 PM - 3:00 pm: SEM class",
+          thursday: "2:00 PM - 3:00 pm: Online meeting",
+          friday: "2:00 PM - 3:00 pm: DSA class",
+          saturday: "2:00 PM - 3:00 pm: Break",
+          sunday: "2:00 PM - 3:00 pm: Management Class",
+        },
+        friend2: {
+          monday: "10:00 AM - 11:00 AM: FCA class",
+          tuesday: "9:00 AM - 11:00 AM: OOPs class",
+          wednesday: "2:00 PM - 3:00 pm: SEM class",
+          thursday: "2:00 PM - 3:00 pm: Online meeting",
+          friday: "2:00 PM - 3:00 pm: DSA class",
+          saturday: "2:00 PM - 3:00 pm: Break",
+          sunday: "2:00 PM - 3:00 pm: Management Class",
+        },
+        friend3: {
+          monday: "2:00 PM - 3:00 pm: Management Class",
+          tuesday: "9:00 AM - 11:00 AM: DSA class",
+          wednesday: "2:00 PM - 3:00 pm: SEM class",
+          thursday: "12:00 PM - 1:00 pm: Management Class",
+          friday: "2:00 PM - 3:00 pm: DSA class",
+          saturday: "2:00 PM - 3:00 pm: Online meeting",
+          sunday: "2:00 PM - 3:00 pm: Management Class",
+        },
+      };
 
-        // Event listener for viewing timetables
-        viewTimetableButton.addEventListener("click", () => {
-            const selectedFriend = friendList.value;
-            const selectedDay = dayList.value;
+      // Event listener for viewing timetables
+      viewTimetableButton.addEventListener("click", () => {
+        const selectedFriend = friendList.value;
+        const selectedDay = dayList.value;
 
-            if (friendTimetables[selectedFriend] && friendTimetables[selectedFriend][selectedDay]) {
-                timetable.textContent = friendTimetables[selectedFriend][selectedDay];
-            } else {
-                timetable.textContent = "No timetable available for this friend on the selected day.";
-            }
-        });
+        if (
+          friendTimetables[selectedFriend] &&
+          friendTimetables[selectedFriend][selectedDay]
+        ) {
+          timetable.textContent = friendTimetables[selectedFriend][selectedDay];
+        } else {
+          timetable.textContent =
+            "No timetable available for this friend on the selected day.";
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
